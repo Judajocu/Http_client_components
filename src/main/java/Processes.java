@@ -25,13 +25,13 @@ public class Processes {
     //Punto C
     public void Img2P(Document doc)
     {
-        Elements all_img = new Elements();
+        Elements all_img = doc.getElementsByTag("p");
         int cant =1;
         for (Element all_p : doc.getElementsByTag("p"))
         {
-            System.out.println("Cantidad de img dentro de P "+cant+" es:");
+            System.out.print("Cantidad de img dentro de P "+cant+" es:");
             all_img = all_p.getElementsByTag("img");
-            System.out.print(all_img.size());
+            System.out.println(all_img.size());
             cant++;
         }
 
@@ -75,6 +75,27 @@ public class Processes {
     //Punto F
     public void Form2Post(Document doc)
     {
-
+        Document doc_post1;
+        Document doc_post2;
+        Elements type_form = doc.getElementsByTag("form");
+        for (FormElement form_post : type_form.forms())
+        {
+            Elements posts =  form_post.getElementsByAttributeValueContaining("method","post");
+            for (Element post_work : posts)
+            {
+                String absURL = post_work.absUrl("action");
+                try
+                {
+                    doc_post1 = Jsoup.connect(absURL).data("asignatura","practica1").post();
+                    doc_post2 = Jsoup.connect(absURL).header("matricula","20130165").post();
+                    System.out.println(doc_post1.body().toString());
+                    System.out.println(doc_post2.body().toString());
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
     }
 }
