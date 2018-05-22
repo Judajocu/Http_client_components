@@ -16,9 +16,18 @@ public class Main {
         String input = br.readLine();
         br.close();
         doc = Jsoup.connect(input).get();
-        //System.out.println(doc);
+        System.out.println("Se muestran a continacion la cantidad de recursos");
+        processes.NumberElements(doc, input);
+        System.out.println("Se muestran a continacion la cantidad de parrafos que tiene el archivo");
+        processes.NumberP(doc);
+        System.out.println("Se muestran a continacion la cantidad de imagenes dentro de cada parrafo");
         processes.Img2P(doc);
-
+        System.out.println("Se muestran a continacion la cantidad de metodos post y get que tienen los forms del archivo");
+        processes.FormType(doc);
+        System.out.println("Se muestran a continacion el tipo de input y la cantidad");
+        processes.FormInput(doc);
+        System.out.println("Se usa el metodo post de un forma para mandar una respuesta");
+        processes.Form2Post(doc);
     }
 }
 

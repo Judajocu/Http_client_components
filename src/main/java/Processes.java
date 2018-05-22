@@ -14,13 +14,13 @@ public class Processes {
     public void NumberElements(Document doc, String url) throws IOException
     {
         Connection.Response responseParagraph = Jsoup.connect(url).execute();
-        System.out.println(responseParagraph.body().split("\n").length);
+        System.out.println("Cantidad de de elementos es: "+responseParagraph.body().split("\n").length);
     }
     //Punto B
     public void NumberP(Document doc)
     {
         Elements all_p = doc.getElementsByTag("p");
-        System.out.println(all_p.size());
+        System.out.println("Cantidad de parrafos es: "+all_p.size());
     }
     //Punto C
     public void Img2P(Document doc)
@@ -54,8 +54,8 @@ public class Processes {
                 cant_Post++;
             }
         }
-        System.out.println(cant_Get);
-        System.out.println(cant_Post);
+        System.out.println("Cantidad de forms con el metodo get es: "+cant_Get);
+        System.out.println("Cantidad de forms con el metodo post es: "+cant_Post);
     }
     //Punto E
     public void FormInput(Document doc)
