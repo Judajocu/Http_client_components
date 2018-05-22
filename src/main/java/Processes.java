@@ -5,13 +5,12 @@ import org.jsoup.nodes.Element;
 import org.jsoup.nodes.FormElement;
 import org.jsoup.select.Elements;
 
-import javax.print.Doc;
 import java.io.IOException;
 
 public class Processes {
 
     //Punto A
-    public void NumberElements(Document doc, String url) throws IOException
+    public void NumberElements(String url) throws IOException
     {
         Connection.Response responseParagraph = Jsoup.connect(url).execute();
         System.out.println("Cantidad de de elementos es: "+responseParagraph.body().split("\n").length);
