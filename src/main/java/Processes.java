@@ -33,7 +33,7 @@ public class Processes {
             System.out.println(all_img.size());
             cant++;
         }
-
+        System.out.println("Cantidad de imagenes dentro de parrafos:"+cant);
     }
     //Punto D
     public void FormType(Document doc)

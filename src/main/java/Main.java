@@ -16,6 +16,8 @@ public class Main {
         String input = br.readLine();
         br.close();
         doc = Jsoup.connect(input).get();
+
+
         System.out.println("Se muestran a continacion la cantidad de recursos");
         processes.NumberElements(input);
         System.out.println("Se muestran a continacion la cantidad de parrafos que tiene el archivo");
